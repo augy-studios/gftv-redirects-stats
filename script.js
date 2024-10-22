@@ -152,7 +152,6 @@ currentYearElement.textContent = currentYear;
 window.onload = () => {
   document.getElementById("shortLinks").style.display = "none";
   document.getElementById("loader").style.display = "block";
-  filterShortLink("all");
   document.getElementById("loader").style.display = "none";
   document.getElementById("shortLinks").style.display = "grid";
 };
