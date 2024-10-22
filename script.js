@@ -17,42 +17,34 @@ let shortLinks = {
     // GFTV
     {
       experimentName: "GFTV Timeline",
-      category: ["GFTV"],
       link: theHostname + "/gftv-history",
     },
     {
       experimentName: "GFTV Anthem Player (V2!)",
-      category: ["GFTV"],
       link: theHostname + "/gftv-player",
     },
     {
       experimentName: "GFTV Values Decorative",
-      category: ["GFTV"],
       link: theHostname + "/gftv-values",
     },
     {
       experimentName: "GFTV Oath",
-      category: ["GFTV"],
       link: theHostname + "/gftv-oath",
     },
     {
       experimentName: "GFTV Oath (Chinese Edition)",
-      category: ["GFTV"],
       link: theHostname + "/gftv-oath-cn",
     },
     {
       experimentName: "GFTV 9th Anniversary",
-      category: ["GFTV"],
       link: theHostname + "/gftv-9anni",
     },
     {
       experimentName: "GFTV Furry QnA (Soon)",
-      category: ["GFTV"],
       link: theHostname + "/gftv-qna",
     },
     {
       experimentName: "GFTV Key Data Animated",
-      category: ["GFTV"],
       link: theHostname + "/gftv-keydata",
     },
   ],
@@ -64,9 +56,6 @@ for (let i of shortLinks.data) {
 
   //Create Card
   let card = document.createElement("div");
-
-  //Card should have category and should stay hidden initially
-  card.classList.add("card", ...i.category, "hide");
 
   //image div
   let imgContainer = document.createElement("div");
@@ -115,47 +104,6 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
   }
 });
 
-//parameter passed from button (Parameter same as category)
-function filterExperiment(value) {
-
-  //Button class code
-  let buttons = document.querySelectorAll(".button-value");
-  buttons.forEach((button) => {
-
-    //check if value equals innerText
-    if (value.toUpperCase() == button.innerText.toUpperCase()) {
-      button.classList.add("active");
-    } else {
-      button.classList.remove("active");
-    }
-  });
-
-  //select all cards
-  let elements = document.querySelectorAll(".card");
-
-  //loop through all cards
-  elements.forEach((element) => {
-
-    //display all cards on 'all' button click
-    if (value == "all") {
-      element.classList.remove("hide");
-    } else {
-
-      //Check if element contains category class
-      if (element.classList.contains(value)) {
-
-        //display element based on category
-        element.classList.remove("hide");
-
-      } else {
-
-        //hide other elements
-        element.classList.add("hide");
-      }
-    }
-  });
-}
-
 //initializations
 let searchBtn = document.getElementById("search");
 let searchInp = document.getElementById("search-input");
@@ -165,14 +113,14 @@ let cards = document.querySelectorAll(".card");
 //Search on enter
 searchInp.addEventListener("keypress", function (event) {
   if (event.keyCode == 13) {
-    getExperiments();
+    getShortLinks();
   }
 });
 
 //Search on click
-searchBtn.addEventListener("click", getExperiments);
+searchBtn.addEventListener("click", getShortLinks);
 
-function getExperiments() {
+function getShortLinks() {
 
   //loop through all elements
   elements.forEach((element, index) => {
@@ -204,7 +152,7 @@ currentYearElement.textContent = currentYear;
 window.onload = () => {
   document.getElementById("shortLinks").style.display = "none";
   document.getElementById("loader").style.display = "block";
-  filterExperiment("all");
+  filterShortLink("all");
   document.getElementById("loader").style.display = "none";
   document.getElementById("shortLinks").style.display = "grid";
 };
