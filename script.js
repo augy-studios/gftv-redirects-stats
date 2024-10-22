@@ -1,7 +1,7 @@
 function compareFn(a, b) {
-  if (a.experimentName < b.experimentName) {
+  if (a.shortLinkName < b.shortLinkName) {
     return -1;
-  } else if (a.experimentName > b.experimentName) {
+  } else if (a.shortLinkName > b.shortLinkName) {
     return 1;
   }
   // a must be equal to b
@@ -10,42 +10,49 @@ function compareFn(a, b) {
 
 // Dynamic Search
 let urlHostname = (new URL(document.location)).hostname
-let theHostname = "https://" + urlHostname
+let theHostname = "https://" + urlHostname.replace("stats.","")
 
 let shortLinks = {
   data: [
-    // GFTV
     {
-      experimentName: "GFTV Timeline",
-      link: theHostname + "/gftv-history",
+      shortLinkName: "/about",
+      link: theHostname + "/about",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Anthem Player (V2!)",
-      link: theHostname + "/gftv-player",
+      shortLinkName: "/linkedin",
+      link: theHostname + "/linkedin",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Values Decorative",
-      link: theHostname + "/gftv-values",
+      shortLinkName: "/yt",
+      link: theHostname + "/yt",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Oath",
-      link: theHostname + "/gftv-oath",
+      shortLinkName: "/bili",
+      link: theHostname + "/bili",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Oath (Chinese Edition)",
-      link: theHostname + "/gftv-oath-cn",
+      shortLinkName: "/patreon",
+      link: theHostname + "/patreon",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV 9th Anniversary",
-      link: theHostname + "/gftv-9anni",
+      shortLinkName: "/discord",
+      link: theHostname + "/discord",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Furry QnA (Soon)",
-      link: theHostname + "/gftv-qna",
+      shortLinkName: "/furryland",
+      link: theHostname + "/furryland",
+      statusCode: 307,
     },
     {
-      experimentName: "GFTV Key Data Animated",
-      link: theHostname + "/gftv-keydata",
+      shortLinkName: "/tg",
+      link: theHostname + "/tg",
+      statusCode: 307,
     },
   ],
 };
@@ -67,7 +74,7 @@ for (let i of shortLinks.data) {
   //short link name
   let name = document.createElement("h3");
   name.classList.add("shortLink-name");
-  name.innerText = i.experimentName;
+  name.innerText = i.shortLinkName;
   container.appendChild(name);
 
   card.appendChild(container);
@@ -80,7 +87,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
 
   while (target !== this) {
     if (target.classList.contains('card')) {
-      const link = shortLinks.data.find(e => e.experimentName === target.querySelector('.shortLink-name').innerText).link;
+      const link = shortLinks.data.find(e => e.shortLinkName === target.querySelector('.shortLink-name').innerText).link;
 
       const newWindow = window.open(link, "_self");
 
@@ -132,14 +139,14 @@ let cards = document.querySelectorAll(".card");
 //Search on enter
 searchInp.addEventListener("keypress", function (event) {
   if (event.keyCode == 13) {
-    getExperiments();
+    getShortLinks();
   }
 });
 
 //Search on click
-searchBtn.addEventListener("click", getExperiments);
+searchBtn.addEventListener("click", getShortLinks);
 
-function getExperiments() {
+function getShortLinks() {
 
   //loop through all elements
   elements.forEach((element, index) => {
