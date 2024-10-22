@@ -116,17 +116,6 @@ footer {
   color: #000;
 }
 
-.button-value {
-  border: 2px solid #6f6;
-  padding: 1em 2.2em;
-  border-radius: 3em;
-  margin-top: 1em;
-  background-color: transparent;
-  color: #6f6;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
 .active {
   background-color: #6f6;
   color: #000;
@@ -155,10 +144,6 @@ footer {
 
 .card:hover {
   background-color: #66f;
-}
-
-.image-container {
-  text-align: center;
 }
 
 img {

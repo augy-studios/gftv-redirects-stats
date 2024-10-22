@@ -57,18 +57,8 @@ for (let i of shortLinks.data) {
   //Create Card
   let card = document.createElement("div");
 
-  //image div
-  let imgContainer = document.createElement("div");
-  imgContainer.classList.add("image-container");
-
-  //img tag
-  let image = document.createElement("img");
-  image.setAttribute("src", i.image);
-  image.setAttribute("loading", "lazy");
-  image.setAttribute("alt", i.experimentName);
-  image.setAttribute("title", i.experimentName);
-  imgContainer.appendChild(image);
-  card.appendChild(imgContainer);
+  //Card should have statusCode and should stay hidden initially
+  card.classList.add("card", ...i.statusCode, "hide");
 
   //container
   let container = document.createElement("div");
@@ -104,6 +94,35 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
   }
 });
 
+//parameter passed from button (Parameter same as statusCode)
+function filterShortLink(value) {
+
+  //select all cards
+  let elements = document.querySelectorAll(".card");
+
+  //loop through all cards
+  elements.forEach((element) => {
+
+    //display all cards on 'all' button click
+    if (value == "all") {
+      element.classList.remove("hide");
+    } else {
+
+      //Check if element contains statusCode class
+      if (element.classList.contains(value)) {
+
+        //display element based on statusCode
+        element.classList.remove("hide");
+
+      } else {
+
+        //hide other elements
+        element.classList.add("hide");
+      }
+    }
+  });
+}
+
 //initializations
 let searchBtn = document.getElementById("search");
 let searchInp = document.getElementById("search-input");
@@ -113,14 +132,14 @@ let cards = document.querySelectorAll(".card");
 //Search on enter
 searchInp.addEventListener("keypress", function (event) {
   if (event.keyCode == 13) {
-    getShortLinks();
+    getExperiments();
   }
 });
 
 //Search on click
-searchBtn.addEventListener("click", getShortLinks);
+searchBtn.addEventListener("click", getExperiments);
 
-function getShortLinks() {
+function getExperiments() {
 
   //loop through all elements
   elements.forEach((element, index) => {
@@ -152,6 +171,7 @@ currentYearElement.textContent = currentYear;
 window.onload = () => {
   document.getElementById("shortLinks").style.display = "none";
   document.getElementById("loader").style.display = "block";
+  filterShortLink("all");
   document.getElementById("loader").style.display = "none";
   document.getElementById("shortLinks").style.display = "grid";
 };
