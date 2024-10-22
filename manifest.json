@@ -1,0 +1,21 @@
+{
+    "name": "Global Furry Television Redirect Stats Directory",
+    "short_name": "GFTV Redirect Stats",
+    "description": "The official Global Furry Television Redirect directory.",
+    "icons": [{
+        "src": "app-icon.png",
+        "type": "image/png",
+        "sizes": "1024x1024"
+    }],
+    "screenshots": [{
+        "src": "/screenshot_1.png",
+        "type": "image/png",
+        "sizes": "1080x2340"
+    }],
+    "start_url": ".",
+    "theme_color": "#262626",
+    "background_color": "#262626",
+    "display": "standalone",
+    "display_override": ["fullscreen", "minimal-ui", "window-controls-overlay"],
+    "orientation": "portrait-primary"
+}
