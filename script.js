@@ -59,28 +59,6 @@ let shortLinks = {
 
 shortLinks.data = shortLinks.data.sort(compareFn);
 
-for (let i of shortLinks.data) {
-
-  //Create Card
-  let card = document.createElement("div");
-
-  //Card should have statusCode and should stay hidden initially
-  card.classList.add("card", String(i.statusCode), "hide");
-
-  //container
-  let container = document.createElement("div");
-  container.classList.add("container");
-
-  //short link name
-  let name = document.createElement("h3");
-  name.classList.add("shortLink-name");
-  name.innerText = i.shortLinkName;
-  container.appendChild(name);
-
-  card.appendChild(container);
-  document.getElementById("shortLinks").appendChild(card);
-}
-
 //link
 document.getElementById("shortLinks").addEventListener("click", function (event) {
   let target = event.target;
@@ -168,11 +146,73 @@ let currentYearElement = document.getElementById("currentYear");
 // Update the content of the element with the current year
 currentYearElement.textContent = currentYear;
 
+async function loadRedirects() {
+  redirects = (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/vercel.json")).json().redirects
+
+  for (let i of shortLinks.data) {
+
+    //Create Card
+    let card = document.createElement("div");
+
+    //Card should have statusCode and should stay hidden initially
+    card.classList.add("card", String(i.statusCode), "hide");
+
+    //container
+    let container = document.createElement("div");
+    container.classList.add("container");
+
+    //short link name
+    let name = document.createElement("h3");
+    name.classList.add("shortLink-name");
+    name.innerText = i.shortLinkName;
+    container.appendChild(name);
+
+    //link
+    let link = document.createElement("p");
+    link.classList.add("shortLink-link");
+    link.innerText = i.link;
+    container.appendChild(link);
+
+    //code
+    let code = document.createElement("p");
+    code.classList.add("shortLink-code");
+    code.innerText = String(i.statusCode);
+    container.appendChild(code);
+
+    //redirects
+    let redirect = document.createElement("p");
+    redirect.classList.add("shortLink-redirect");
+    for (let j of redirects) {
+      if (j.source == i.shortLinkName) {
+        redirect.innerText = j.destination;
+        break;
+      }
+    }
+    container.appendChild(redirect);
+
+    //copy button
+    let copyBtn = document.createElement("span");
+    copyBtn.classList.add("shortLink-copyBtn material-symbols-rounded");
+    copyBtn.title = "Click to copy me";
+    copyBtn.style.color = "rgb(112, 112, 112)";
+    container.appendChild(copyBtn);
+
+    let copied = document.createElement("copied");
+    copied.classList.add("shortLink-copied");
+    copied.innerText = "Copied to clipboard";
+    container.appendChild(copied);
+
+    card.appendChild(container);
+    document.getElementById("shortLinks").appendChild(card);
+  }
+  filterShortLink("all");
+}
+
 //Initially display all shortLinks
-window.onload = () => {
+window.onload = async () => {
   document.getElementById("shortLinks").style.display = "none";
   document.getElementById("loader").style.display = "block";
-  filterShortLink("all");
+  await loadRedirects();
   document.getElementById("loader").style.display = "none";
   document.getElementById("shortLinks").style.display = "grid";
 };
