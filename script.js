@@ -65,7 +65,7 @@ for (let i of shortLinks.data) {
   let card = document.createElement("div");
 
   //Card should have statusCode and should stay hidden initially
-  card.classList.add("card", ...i.statusCode, "hide");
+  card.classList.add("card", String(i.statusCode), "hide");
 
   //container
   let container = document.createElement("div");
