@@ -133,7 +133,7 @@ footer {
 .card {
   cursor: pointer;
   background-color: #00000000;
-  width: 12em;
+  width: 36em;
   max-width: 36em;
   margin-top: 1em;
   padding: 1em;
@@ -215,5 +215,13 @@ img {
   #shortLinks {
     grid-template-columns: auto;
     grid-column-gap: 1em;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .card {
+    width: 20em;
+    max-width: 20em;
+    margin-top: 1em;
   }
 }
