@@ -133,8 +133,8 @@ footer {
 .card {
   cursor: pointer;
   background-color: #00000000;
-  width: 60em;
-  max-width: 60em;
+  width: 50em;
+  max-width: 50em;
   margin-top: 1em;
   padding: 1em;
   border: 5px solid #66f;
@@ -199,10 +199,10 @@ img {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1180px) {
   .card {
-    width: 50em;
-    max-width: 50em;
+    width: 45em;
+    max-width: 45em;
     margin-top: 1em;
   }
 }
