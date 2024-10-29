@@ -1,7 +1,7 @@
 function compareFn(a, b) {
-  if (a.shortLinkName < b.shortLinkName) {
+  if (a.source < b.source) {
     return -1;
-  } else if (a.shortLinkName > b.shortLinkName) {
+  } else if (a.source > b.source) {
     return 1;
   }
   // a must be equal to b
@@ -11,53 +11,7 @@ function compareFn(a, b) {
 // Dynamic Search
 let urlHostname = (new URL(document.location)).hostname
 let theHostname = "https://" + urlHostname.replace("stats.","")
-
-let shortLinks = {
-  data: [
-    {
-      shortLinkName: "/about",
-      link: theHostname + "/about",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/linkedin",
-      link: theHostname + "/linkedin",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/yt",
-      link: theHostname + "/yt",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/bili",
-      link: theHostname + "/bili",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/patreon",
-      link: theHostname + "/patreon",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/discord",
-      link: theHostname + "/discord",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/furryland",
-      link: theHostname + "/furryland",
-      statusCode: 307,
-    },
-    {
-      shortLinkName: "/tg",
-      link: theHostname + "/tg",
-      statusCode: 307,
-    },
-  ],
-};
-
-shortLinks.data = shortLinks.data.sort(compareFn);
+let redirects = []
 
 //link
 document.getElementById("shortLinks").addEventListener("click", function (event) {
@@ -65,7 +19,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
 
   while (target !== this) {
     if (target.classList.contains('card')) {
-      const link = shortLinks.data.find(e => e.shortLinkName === target.querySelector('.shortLink-name').innerText).link;
+      const link = theHostname + redirects.find(e => e.source === target.querySelector('.shortLink-name').innerText).source;
       navigator.clipboard.writeText(link);
       return;
     }
@@ -148,8 +102,9 @@ currentYearElement.textContent = currentYear;
 
 async function loadRedirects() {
   redirects = (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/vercel.json")).json().redirects
+  redirects = redirects.sort(compareFn);
 
-  for (let i of shortLinks.data) {
+  for (let i of redirects) {
 
     //Create Card
     let card = document.createElement("div");
@@ -164,13 +119,13 @@ async function loadRedirects() {
     //short link name
     let name = document.createElement("h3");
     name.classList.add("shortLink-name");
-    name.innerText = i.shortLinkName;
+    name.innerText = i.source;
     container.appendChild(name);
 
     //link
     let link = document.createElement("p");
     link.classList.add("shortLink-link");
-    link.innerText = i.link;
+    link.innerText = theHostname + i.source;
     container.appendChild(link);
 
     //code
@@ -182,12 +137,7 @@ async function loadRedirects() {
     //redirects
     let redirect = document.createElement("p");
     redirect.classList.add("shortLink-redirect");
-    for (let j of redirects) {
-      if (j.source == i.shortLinkName) {
-        redirect.innerText = j.destination;
-        break;
-      }
-    }
+    redirect.innerText = i.destination;
     container.appendChild(redirect);
 
     //copy button
