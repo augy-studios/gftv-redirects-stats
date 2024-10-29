@@ -225,3 +225,11 @@ img {
     margin-top: 1em;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .card {
+    width: 15em;
+    max-width: 15em;
+    margin-top: 1em;
+  }
+}
