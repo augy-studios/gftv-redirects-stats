@@ -88,13 +88,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
   while (target !== this) {
     if (target.classList.contains('card')) {
       const link = shortLinks.data.find(e => e.shortLinkName === target.querySelector('.shortLink-name').innerText).link;
-
-      const newWindow = window.open(link, "_self");
-
-      if (!newWindow) {
-        window.location.href = link;
-      }
-
+      navigator.clipboard.writeText(link);
       return;
     }
     target = target.parentNode;
