@@ -133,7 +133,7 @@ footer {
 .card {
   cursor: pointer;
   background-color: #00000000;
-  max-width: 18em;
+  max-width: 36em;
   margin-top: 1em;
   padding: 1em;
   border: 5px solid #66f;
@@ -211,7 +211,7 @@ img {
   }
 
   #shortLinks {
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-column-gap: 1em;
   }
 }
