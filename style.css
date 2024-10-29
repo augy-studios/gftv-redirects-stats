@@ -207,8 +207,8 @@ img {
   }
 
   .card {
-    width: 10em;
-    max-width: 30em;
+    /* width: 10em; */
+    min-width: 30em;
     margin-top: 1em;
   }
 
