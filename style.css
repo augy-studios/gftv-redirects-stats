@@ -133,7 +133,8 @@ footer {
 .card {
   cursor: pointer;
   background-color: #00000000;
-  min-width: 36em;
+  width: 12em;
+  max-width: 36em;
   margin-top: 1em;
   padding: 1em;
   border: 5px solid #66f;
@@ -206,7 +207,8 @@ img {
   }
 
   .card {
-    min-width: 30em;
+    width: 10em;
+    max-width: 30em;
     margin-top: 1em;
   }
 
