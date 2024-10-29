@@ -199,6 +199,14 @@ img {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 50em;
+    max-width: 50em;
+    margin-top: 1em;
+  }
+}
+
 @media screen and (max-width: 720px) {
   img {
     max-width: 100%;
