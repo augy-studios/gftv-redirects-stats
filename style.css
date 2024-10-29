@@ -133,8 +133,8 @@ footer {
 .card {
   cursor: pointer;
   background-color: #00000000;
-  width: 70em;
-  max-width: 70em;
+  width: 60em;
+  max-width: 60em;
   margin-top: 1em;
   padding: 1em;
   border: 5px solid #66f;
