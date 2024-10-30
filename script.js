@@ -126,7 +126,7 @@ async function loadRedirects() {
     let link = document.createElement("p")
     let pSpan = document.createElement("span")
     pSpan.innerText = "Full Short Link: "
-    pSpan.style.color = "rgb(255, 204, 204)"
+    pSpan.style.color = "rgb(204, 255, 255)"
     link.classList.add("shortLink-link")
     link.appendChild(pSpan)
     link.innerHTML += theHostname + i.source
