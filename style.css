@@ -203,6 +203,7 @@ footer {
 
 .shortLink-copied.copy-done {
   color: #99f;
+  border-color: #6f6;
 }
 
 @keyframes spin {
