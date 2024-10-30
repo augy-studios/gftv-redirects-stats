@@ -145,7 +145,7 @@ footer {
 }
 
 .card:hover {
-  background-color: #ccf;
+  border-color: #66f;
 }
 
 /* img {
