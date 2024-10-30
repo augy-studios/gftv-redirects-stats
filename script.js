@@ -128,7 +128,8 @@ async function loadRedirects() {
     pSpan.innerText = "Full Short Link: "
     pSpan.style.color = "rgb(255, 204, 255)"
     link.classList.add("shortLink-link")
-    link.innerText = pSpan.innerText + theHostname + i.source
+    link.innerHTML += pSpan.innerText + theHostname + i.source
+    link.appendChild(pSpan)
     container.appendChild(link)
 
     //code
