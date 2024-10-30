@@ -194,6 +194,10 @@ img {
   animation: spin 1.5s infinite linear;
 }
 
+.shortLink-redirect, .shortLink-link {
+  overflow-wrap: anywhere;
+}
+
 @keyframes spin {
   100% {
       transform: rotate(360deg);
