@@ -153,15 +153,15 @@ async function loadRedirects() {
     container.appendChild(redirect)
 
     //copy button
-    let copyBtn = document.createElement("span")
-    copyBtn.classList.add("shortLink-copyBtn","material-symbols-rounded")
-    copyBtn.title = "Click to copy to clipboard"
-    copyBtn.style.color = "rgb(204, 255, 204)"
-    container.appendChild(copyBtn);
+    // let copyBtn = document.createElement("span")
+    // copyBtn.classList.add("shortLink-copyBtn","material-symbols-rounded")
+    // copyBtn.title = "Click to copy to clipboard"
+    // copyBtn.style.color = "rgb(204, 255, 204)"
+    // container.appendChild(copyBtn);
 
     let copied = document.createElement("copied")
     copied.classList.add("shortLink-copied")
-    copied.innerText = "Copied to clipboard"
+    copied.innerText = "Copy to clipboard"
     container.appendChild(copied)
 
     card.appendChild(container)
