@@ -24,7 +24,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
       target.querySelector('.shortLink-copied').innerText = "Copied!✔️"
       target.querySelector('.shortLink-copied').classList.add("copy-done")
       setTimeout(() => { // after 1500 ms, changing text back to the original
-        target.querySelector('.shortLink-copied').innerText = "Click to copy to clipboard"
+        target.querySelector('.shortLink-copied').innerText = "Click to copy short link"
         target.querySelector('.shortLink-copied').classList.remove("copy-done")
       }, 1500)
       return
@@ -161,7 +161,7 @@ async function loadRedirects() {
     //copy button
     let copied = document.createElement("copied")
     copied.classList.add("shortLink-copied")
-    copied.innerText = "Click to copy to clipboard"
+    copied.innerText = "Click to copy short link"
     container.appendChild(copied)
 
     card.appendChild(container)
