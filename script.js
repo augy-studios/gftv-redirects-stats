@@ -21,7 +21,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
     if (target.classList.contains('card')) {
       const link = theHostname + redirects.find(e => e.source === target.querySelector('.shortLink-name').innerText).source
       navigator.clipboard.writeText(link)
-      target.querySelector('.shortLink-copied').innerText = "Copied!"
+      target.querySelector('.shortLink-copied').innerText = "Copied!✔️"
       target.querySelector('.shortLink-copied').classList.add("copy-done")
       setTimeout(() => { // after 1500 ms, changing text back to the original
         target.querySelector('.shortLink-copied').innerText = "Click to copy to clipboard"
@@ -132,7 +132,7 @@ async function loadRedirects() {
     let link = document.createElement("p")
     let linkSpan = document.createElement("span")
     linkSpan.innerText = "Full Short Link: "
-    linkSpan.style.color = "rgb(204, 255, 204)"
+    linkSpan.style.color = "rgb(153, 255, 153)"
     link.classList.add("shortLink-link")
     link.appendChild(linkSpan)
     link.innerHTML += theHostname + i.source
@@ -142,7 +142,7 @@ async function loadRedirects() {
     let code = document.createElement("p")
     let codeSpan = document.createElement("span")
     codeSpan.innerText = "Status Code: "
-    codeSpan.style.color = "rgb(204, 255, 204)"
+    codeSpan.style.color = "rgb(153, 255, 153)"
     code.classList.add("shortLink-code")
     code.appendChild(codeSpan)
     code.innerHTML += String(i.statusCode)
@@ -152,7 +152,7 @@ async function loadRedirects() {
     let redirect = document.createElement("p")
     let redirectSpan = document.createElement("span")
     redirectSpan.innerText = "Source: "
-    redirectSpan.style.color = "rgb(204, 255, 204)"
+    redirectSpan.style.color = "rgb(153, 255, 153)"
     redirect.classList.add("shortLink-redirect")
     redirect.appendChild(redirectSpan)
     redirect.innerHTML += i.destination
