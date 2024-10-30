@@ -203,9 +203,10 @@ footer {
 
 .shortLink-copied.copy-done {
   color: #99f;
-  .card {
-    border-color: #6f6;
-  }
+}
+
+.shortLink-copied.copy-done + .card {
+  border-color: #6f6;
 }
 
 @keyframes spin {
