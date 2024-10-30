@@ -143,8 +143,8 @@ async function loadRedirects() {
     //copy button
     let copyBtn = document.createElement("span");
     copyBtn.classList.add("shortLink-copyBtn","material-symbols-rounded");
-    copyBtn.title = "Click to copy me";
-    copyBtn.style.color = "rgb(112, 112, 112)";
+    copyBtn.title = "Click to copy to clipboard";
+    copyBtn.style.color = "rgb(204, 255, 204)";
     container.appendChild(copyBtn);
 
     let copied = document.createElement("copied");
