@@ -124,24 +124,32 @@ async function loadRedirects() {
 
     //link
     let link = document.createElement("p")
-    let pSpan = document.createElement("span")
-    pSpan.innerText = "Full Short Link: "
-    pSpan.style.color = "rgb(204, 255, 255)"
+    let linkSpan = document.createElement("span")
+    linkSpan.innerText = "Full Short Link: "
+    linkSpan.style.color = "rgb(204, 255, 255)"
     link.classList.add("shortLink-link")
-    link.appendChild(pSpan)
+    link.appendChild(linkSpan)
     link.innerHTML += theHostname + i.source
     container.appendChild(link)
 
     //code
     let code = document.createElement("p")
+    let codeSpan = document.createElement("span")
+    codeSpan.innerText = "Status Code: "
+    codeSpan.style.color = "rgb(204, 255, 255)"
     code.classList.add("shortLink-code")
-    code.innerText = "Status Code: " + String(i.statusCode)
+    code.appendChild(codeSpan)
+    code.innerHTML += String(i.statusCode)
     container.appendChild(code)
 
     //redirects
     let redirect = document.createElement("p")
+    let redirectSpan = document.createElement("span")
+    redirectSpan.innerText = "Source: "
+    redirectSpan.style.color = "rgb(204, 255, 255)"
     redirect.classList.add("shortLink-redirect")
-    redirect.innerText = "Source: " + i.destination
+    redirect.appendChild(redirectSpan)
+    redirect.innerHTML += i.destination
     container.appendChild(redirect)
 
     //copy button
