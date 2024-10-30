@@ -136,6 +136,7 @@ footer {
   background-color: #00000000;
   width: 50em;
   max-width: 50em;
+  margin-top: 1em;
   padding: 1em;
   border: 5px solid #66f;
   border-radius: 5px;
@@ -203,6 +204,7 @@ img {
   .card {
     width: 45em;
     max-width: 45em;
+    margin-top: 1em;
   }
 }
 
@@ -210,6 +212,7 @@ img {
   .card {
     width: 40em;
     max-width: 40em;
+    margin-top: 1em;
   }
 }
 
@@ -223,6 +226,7 @@ img {
   .card {
     width: 30em;
     max-width: 30em;
+    margin-top: 1em;
   }
 
   #shortLinks {
