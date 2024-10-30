@@ -21,6 +21,12 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
     if (target.classList.contains('card')) {
       const link = theHostname + redirects.find(e => e.source === target.querySelector('.shortLink-name').innerText).source
       navigator.clipboard.writeText(link)
+      target.querySelector('.shortLink-copied').innerText = "Copied!"
+      target.querySelector('.shortLink-copied').classList.add("copy-done")
+      setTimeout(() => { // after 1500 ms, changing text back to the original
+        target.querySelector('.shortLink-copied').innerText = "Click to copy to clipboard"
+        target.querySelector('.shortLink-copied').classList.remove("copy-done")
+      }, 1500)
       return
     }
     target = target.parentNode
@@ -153,15 +159,9 @@ async function loadRedirects() {
     container.appendChild(redirect)
 
     //copy button
-    // let copyBtn = document.createElement("span")
-    // copyBtn.classList.add("shortLink-copyBtn","material-symbols-rounded")
-    // copyBtn.title = "Click to copy to clipboard"
-    // copyBtn.style.color = "rgb(204, 255, 204)"
-    // container.appendChild(copyBtn);
-
     let copied = document.createElement("copied")
     copied.classList.add("shortLink-copied")
-    copied.innerText = "Copy to clipboard"
+    copied.innerText = "Click to copy to clipboard"
     container.appendChild(copied)
 
     card.appendChild(container)
