@@ -127,7 +127,7 @@ footer {
   display: grid;
   grid-template-columns: auto;
   grid-column-gap: 1.5em;
-  padding: 2em 0;
+  /* padding: 2em 0; */
 }
 
 .card {
