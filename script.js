@@ -118,15 +118,16 @@ async function loadRedirects() {
 
     //short link name
     let name = document.createElement("h3")
-    // let nameSpan = name.createElement("span")
     name.classList.add("shortLink-name")
     name.innerText = i.source
     container.appendChild(name)
 
     //link
     let link = document.createElement("p")
+    let pSpan = name.createElement("span")
+    pSpan.innerText = "Full Short Link: "
     link.classList.add("shortLink-link")
-    link.innerText = "Full Short Link: " + theHostname + i.source
+    link.innerText =  theHostname + i.source
     container.appendChild(link)
 
     //code
