@@ -125,19 +125,19 @@ async function loadRedirects() {
     //link
     let link = document.createElement("p");
     link.classList.add("shortLink-link");
-    link.innerText = theHostname + i.source;
+    link.innerText = "Full Short Link: " + theHostname + i.source;
     container.appendChild(link);
 
     //code
     let code = document.createElement("p");
     code.classList.add("shortLink-code");
-    code.innerText = String(i.statusCode);
+    code.innerText = "Status Code: " + String(i.statusCode);
     container.appendChild(code);
 
     //redirects
     let redirect = document.createElement("p");
     redirect.classList.add("shortLink-redirect");
-    redirect.innerText = i.destination;
+    redirect.innerText = "Source: " + i.destination;
     container.appendChild(redirect);
 
     //copy button
