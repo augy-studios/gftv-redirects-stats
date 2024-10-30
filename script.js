@@ -126,7 +126,7 @@ async function loadRedirects() {
     let link = document.createElement("p")
     let linkSpan = document.createElement("span")
     linkSpan.innerText = "Full Short Link: "
-    linkSpan.style.color = "rgb(204, 255, 255)"
+    linkSpan.style.color = "rgb(204, 255, 204)"
     link.classList.add("shortLink-link")
     link.appendChild(linkSpan)
     link.innerHTML += theHostname + i.source
@@ -136,7 +136,7 @@ async function loadRedirects() {
     let code = document.createElement("p")
     let codeSpan = document.createElement("span")
     codeSpan.innerText = "Status Code: "
-    codeSpan.style.color = "rgb(204, 255, 255)"
+    codeSpan.style.color = "rgb(204, 255, 204)"
     code.classList.add("shortLink-code")
     code.appendChild(codeSpan)
     code.innerHTML += String(i.statusCode)
@@ -146,7 +146,7 @@ async function loadRedirects() {
     let redirect = document.createElement("p")
     let redirectSpan = document.createElement("span")
     redirectSpan.innerText = "Source: "
-    redirectSpan.style.color = "rgb(204, 255, 255)"
+    redirectSpan.style.color = "rgb(204, 255, 204)"
     redirect.classList.add("shortLink-redirect")
     redirect.appendChild(redirectSpan)
     redirect.innerHTML += i.destination
