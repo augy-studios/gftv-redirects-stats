@@ -205,7 +205,7 @@ footer {
   color: #9f9;
 }
 
-.shortLink-copied.copy-done + .card {
+.card:has(.container.copy-done) {
   border-color: #6f6;
 }
 
