@@ -126,6 +126,9 @@ async function loadRedirects() {
     let name = document.createElement("h3")
     name.classList.add("shortLink-name")
     name.innerText = i.source
+    if (i.source == redirects[redirects.length - 1].source) {
+        name.innerText += " [NEW]";
+    }
     container.appendChild(name)
 
     //link
