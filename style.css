@@ -205,7 +205,7 @@ footer {
   color: #9f9;
 }
 
-.card:has(.container.copy-done) {
+.card:has(.copy-done) {
   border-color: #6f6;
 }
 
