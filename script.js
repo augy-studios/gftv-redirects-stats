@@ -20,7 +20,7 @@ document.getElementById("shortLinks").addEventListener("click", function (event)
 
   while (target !== this) {
     if (target.classList.contains('card')) {
-      const link = theHostname + redirects.find(e => e.source === target.querySelector('.shortLink-name').innerText).source
+      const link = theHostname + redirects.find(e => e.source === target.querySelector('.shortLink-name').innerText.split(' [NEW]')[0]).source
       navigator.clipboard.writeText(link)
       target.querySelector('.shortLink-copied').innerText = "Copied!✔️"
       target.querySelector('.shortLink-copied').classList.add("copy-done")
