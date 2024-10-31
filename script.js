@@ -12,6 +12,7 @@ function compareFn(a, b) {
 let urlHostname = (new URL(document.location)).hostname
 let theHostname = "https://" + urlHostname.replace("stats.","")
 let redirects = []
+let redirects1 = []
 
 //link
 document.getElementById("shortLinks").addEventListener("click", function (event) {
@@ -107,8 +108,8 @@ let currentYearElement = document.getElementById("currentYear")
 currentYearElement.textContent = currentYear
 
 async function loadRedirects() {
-  redirects = (await (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/vercel.json")).json()).redirects
-  redirects = redirects.sort(compareFn)
+  redirects1 = (await (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/vercel.json")).json()).redirects
+  redirects = redirects1.sort(compareFn)
 
   for (let i of redirects) {
 
@@ -126,6 +127,9 @@ async function loadRedirects() {
     let name = document.createElement("h3")
     name.classList.add("shortLink-name")
     name.innerText = i.source
+    if (i.source == redirects1[redirects.length - 1].source) {
+        name.innerText += " [NEW]";
+    }
     container.appendChild(name)
 
     //link
