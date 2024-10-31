@@ -129,7 +129,7 @@ async function loadRedirects() {
     name.classList.add("shortLink-name")
     name.innerText = i.source
     if (i.source == redirects1[redirects.length - 1].source) {
-        name.innerText += " [NEW]";
+      name.innerHTML += ' <span class="shortlink-new">[NEW]</span>';
     }
     container.appendChild(name)
 

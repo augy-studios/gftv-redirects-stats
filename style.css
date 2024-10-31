@@ -197,7 +197,7 @@ footer {
   overflow-wrap: anywhere;
 }
 
-.shortLink-copied {
+.shortLink-copied, .shortlink-new {
   color: #f99;
 }
 
