@@ -108,7 +108,7 @@ let currentYearElement = document.getElementById("currentYear")
 currentYearElement.textContent = currentYear
 
 async function loadRedirects() {
-  redirects1 = (await (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/vercel.json")).json()).redirects
+  redirects1 = (await (await fetch("https://raw.githubusercontent.com/augy-studios/gftv-redirects/refs/heads/main/asia/vercel.json")).json()).redirects
   redirects = redirects1.slice(0)
   redirects = redirects.sort(compareFn)
 
