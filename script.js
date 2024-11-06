@@ -66,8 +66,8 @@ function filterShortLink(value) {
 //initializations
 let searchBtn = document.getElementById("search")
 let searchInp = document.getElementById("search-input")
-let elements = document.querySelectorAll(".shortLink-name")
-let cards = document.querySelectorAll(".card")
+let elements = []
+let cards = []
 
 //Search on enter
 searchInp.addEventListener("keypress", function (event) {
@@ -173,6 +173,9 @@ async function loadRedirects() {
     document.getElementById("shortLinks").appendChild(card)
   }
   filterShortLink("all")
+
+  elements = document.querySelectorAll(".shortLink-name")
+  cards = document.querySelectorAll(".card")
 }
 
 //Initially display all shortLinks
