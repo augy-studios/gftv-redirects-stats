@@ -3,7 +3,7 @@
     "short_name": "GFTV Redirect Stats",
     "description": "The official Global Furry Television Redirect directory.",
     "icons": [{
-        "src": "app-icon.png",
+        "src": "app-icon-2.png",
         "type": "image/png",
         "sizes": "1024x1024"
     }],
