@@ -11,6 +11,11 @@
         "src": "/screenshot_1.png",
         "type": "image/png",
         "sizes": "1080x2340"
+    },
+    {
+        "src": "/screenshot_2.png",
+        "type": "image/png",
+        "sizes": "1920x1080"
     }],
     "start_url": ".",
     "theme_color": "#262626",
